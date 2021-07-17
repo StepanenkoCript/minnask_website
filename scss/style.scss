@@ -1,0 +1,681 @@
+//font-family: 'DM Sans', sans-serif;
+//font-family: 'Poppins', sans-serif;
+
+//css reset=================================
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+//cores principais. Mudar aqui altera para todos os locais do site
+
+$hue: 326; // <<<======    *************mude aqui para mudar a cor de todo site******************
+$cor-primaria: hsl($hue, 88%, 29%);
+$fundo-imagem: hsla(334, 30%, 49%, 0.274);
+$cor-botao: hsl($hue, 23%, 33%);
+$title-color: hsl($hue, 41%, 10%);
+$body-color: hsl(0, 5%, 92%);
+$body-color-light:hsl(0, 0%, 96%);
+$cor-secundaria: hsl($hue, 100%, 57%);
+$cor-terciaria: #4f5052;
+$text-color-light: #f9f9f9;
+$background-color: #fafafa;
+
+/* fonts */
+$title-font-size: 1.875rem;
+$subtitle-font-size: 1rem;
+
+$title-font: "Poppins", sans-serif;
+$body-font: "DM Sans", sans-serif;
+
+//BASE========================================
+html {
+    scroll-behavior: smooth; //ao clicar no inicio, about, etc, ele da um scropp "suave" até a sessão requerida.
+}
+
+body {
+    font: 400 1rem $body-font;
+    color: $cor-terciaria;
+    background: $body-color;
+    -webkit-font-smoothing: antialiased;
+}
+
+.title {
+    font: 700 $title-font-size $title-font;
+    color: $title-color;
+    -webkit-font-smoothing: auto;
+}
+
+.button {
+    background-color: $cor-primaria;
+    color: $text-color-light;
+    height: 3.5rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 2rem;
+    border-radius: 0.25rem;
+    font: 500 1rem $body-font;
+    transition: background 0.3s;
+
+    &:hover {
+        background: $cor-secundaria;
+    }
+}
+
+.divider-1 {
+    height: 1px;
+    background: linear-gradient(270deg, $background-color, $cor-secundaria);
+}
+
+.divider-2 {
+    height: 1px;
+    background: linear-gradient(270deg, $cor-primaria, $background-color);
+}
+
+//LAYOUT======================================
+.container {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.section {
+    padding: calc(5rem + 4.5rem) 0;
+
+    .title {
+        margin-bottom: 1rem;
+    }
+
+    .subtitle {
+        font-size: $subtitle-font-size;
+    }
+
+    header {
+        margin-bottom: 4rem;
+
+        strong {
+            color: $cor-primaria;
+        }
+    }
+}
+
+#header {
+    border-bottom: 1px solid #e4e4e4;
+    margin-bottom: 2rem;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: $body-color-light;
+    width: 100%;
+
+    &.scroll {
+        box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15); // aplica uma sombra no header sempre que der scroll
+    }
+}
+
+//LOGO==========================================
+.logo {
+    font: 700 1.31rem $title-font;
+    color: $cor-primaria;
+}
+
+//NAVIGATION====================================
+nav {
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    ul li {
+        text-align: center;
+
+        a {
+            transition: color 0.2s;
+            position: relative;
+
+            &:hover,
+            &.active {
+                color: $cor-primaria;
+            }
+
+            &::after {
+                content: "";
+                width: 0%;
+                height: 2px;
+                background: $cor-primaria;
+
+                position: absolute;
+                left: 0;
+                bottom: -1.5rem;
+
+                transition: width 0.2s;
+            }
+
+            &:hover::after,
+            &.active::after {
+                width: 100%;
+            }
+        }
+    }
+
+    .menu {
+        opacity: 0;
+        visibility: hidden;
+        top: -20rem;
+        transition: 0.2s;
+
+        ul {
+            display: none;
+        }
+    }
+}
+
+//SHOW MENU=====================================
+nav.show .menu {
+    opacity: 1;
+    visibility: visible;
+
+    background: $body-color;
+
+    height: 100vh;
+    width: 100vw;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: grid;
+    place-content: center;
+
+    ul {
+        display: grid;
+    }
+}
+
+nav.show ul.grid {
+    gap: 4rem;
+}
+
+//TOGGLE MENU===================================
+.toggle {
+    color: $cor-primaria;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+nav .icon-close {
+    visibility: hidden;
+    opacity: 0;
+
+    position: absolute;
+    top: -1.5rem;
+    right: 1.5rem;
+
+    transition: 0.2s;
+}
+
+nav.show div.icon-close {
+    visibility: visible;
+    opacity: 1;
+    top: 1.5rem;
+}
+
+//HOME==========================================
+#home {
+    overflow: hidden;
+
+    &.container {
+        margin: 0;
+    }
+
+    .image {
+        position: relative;
+
+        &::before {
+            content: "";
+            height: 100%;
+            width: 100%;
+            background: $fundo-imagem;
+            position: absolute;
+            top: -16.8%;
+            left: 16.7%;
+            z-index: 0;
+        }
+
+        img {
+            position: relative;
+            right: 1.5rem;
+            transition: 0.3s;
+
+            &:hover {
+                transition: 0.3s;
+                transform: translateY(-8px);
+            }
+        }
+
+        &img,
+        &::before {
+            border-radius: 0.25rem;
+        }
+    }
+
+    .text {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+        text-align: center;
+
+        h1 {
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+//ABOUT=========================================
+#about {
+    background: white;
+
+    .container {
+        margin: 0;
+    }
+
+    .image {
+        position: relative;
+
+        &::before {
+            content: "";
+            height: 100%;
+            width: 100%;
+            background: $fundo-imagem;
+            position: absolute;
+            top: -8.3%;
+            left: -33%;
+            z-index: 0;
+        }
+
+        img {
+            position: relative;
+        }
+
+        &img,
+        &::before {
+            border-radius: 0.25rem;
+        }
+    }
+
+    .text {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+
+    strong {
+        color: $cor-primaria;
+    }
+}
+
+//SERVICES======================================
+.cards.grid {
+    gap: 1.5rem;
+}
+
+.card {
+    padding: 3.625rem 2rem;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+    border-bottom: 0.25rem solid $cor-primaria;
+    border-radius: 0.25rem 0.25rem 0 0;
+    text-align: justify;    
+
+    i {
+        display: block;
+        margin-bottom: 1.5rem;
+        font-size: 5rem;
+        color: $cor-primaria;
+    }
+
+    .title {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+        transition: 0.3s;
+        font-family: $body-font;
+    }
+}
+
+.card2 {
+    padding: 3.625rem 2rem;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+    border-bottom: 0.25rem solid $cor-primaria;
+    border-radius: 0.25rem 0.25rem 0 0;
+    text-align: center;   
+    
+    i {
+        display: block;
+        margin-bottom: 1.5rem;
+        font-size: 5rem;
+        color: $cor-primaria;
+    }
+
+    .icon-instagram {
+        display: block;
+        margin-bottom: 1.5rem;
+        font-size: 3.5rem;
+        color: $cor-primaria;
+    }
+}
+
+//TESTIMONIALS==================================
+#testimonials {
+    background: white;
+
+    .container {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    header {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    blockquote {
+        padding: 2rem;
+        box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+        border-radius: 0.25rem;
+
+        p {
+            position: relative;
+            text-indent: 1.875rem;
+            margin-bottom: 1.5rem;
+            color: $title-color;
+
+            span {
+                font: 700 2.5rem serif;
+                position: absolute;
+                top: -0.375rem;
+                left: -1.875rem;
+                color: $cor-primaria;
+            }
+        }
+    }
+
+    cite {
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 2rem;
+            height: 2rem;
+            object-fit: cover; // mesmo que a imagem nao seja 2x2rem, ele faz a imagem ficar cheia e correta
+            clip-path: circle(); // faz a imagem ser um circulo
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+//SWIPER========================================
+.swiper-slide {
+    height: auto;
+    padding: 4rem 1rem;
+}
+
+.swiper-pagination-bullet {
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+.swiper-pagination-bullet-active {
+    background: $cor-primaria;
+}
+
+//CONTACT=======================================
+#contact 
+    .grid {
+    gap: 4rem;
+
+    strong {
+        color: $cor-primaria;
+    }
+
+    
+    .text p {
+        margin-bottom: 2rem;
+    }
+
+    .button i,
+    ul li i {
+        font-size: 1.5rem;
+        margin-right: 0.625rem;
+    }
+
+    ul.grid {
+        gap: 2rem;
+    }
+
+    ul li {
+        display: flex;
+        align-items: center;
+
+        i {
+            color: $cor-primaria;
+        }
+    }
+}
+
+//FOOTER========================================
+footer {
+    background: $cor-primaria;
+
+    .section {
+        padding: 4rem 0;
+    }
+
+    .logo {
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        color: white;
+    }
+
+    .brand p {
+        color: $text-color-light;
+        margin-bottom: 0.75rem;
+    }
+
+    i {
+        font-size: 1.5rem;
+        color: $text-color-light;
+    }
+
+    .social {
+        grid-auto-flow: column;
+        width: fit-content;
+
+        a {
+            transition: 0.3s;
+            display: inline-block;
+
+            &:hover {
+                transform: translateY(-8px);
+            }
+        }
+    }
+}
+
+//BACK TO TOP===================================
+.back-to-top {
+    background: $cor-primaria;
+    color: $text-color-light;
+
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+
+    padding: 0.5rem;
+    clip-path: circle();
+
+    font-size: 1.5rem;
+    line-height: 0;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition: 0.3s;
+    transform: translateY(100%);
+
+    &.show {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+//MEDIA QUERIES=================================
+/* extra large devices: 1200 > */
+@media (min-width: 1200px) {
+    /* reusable classes */
+    .container {
+        max-width: 1120px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section {
+        padding: 10rem 0;
+    }
+
+    .section header,
+    #testimonials header {
+        max-width: 32rem;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .button {
+        height: 3.125rem;
+    }
+
+    /* navigation */
+    nav .menu {
+        opacity: 1;
+        visibility: visible;
+        top: 0;
+    }
+
+    nav .menu ul {
+        display: flex;
+        gap: 2rem;
+    }
+
+    nav .menu ul li a.title {
+        font: 400 1rem $body-font;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    nav .menu ul li a.title.active {
+        font-weight: bold;
+        -webkit-font-smoothing: auto;
+    }
+
+    nav .icon-menu {
+        // apaga o hamburguer quando desktop mode
+        display: none;
+    }
+
+    /* layout */
+    main {
+        margin-top: 4.5rem;
+    }
+
+    /* home */
+    #home .container {
+        grid-auto-flow: column;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+
+    #home .image {
+        order: 1;
+    }
+
+    #home .text {
+        order: 0;
+        max-width: 24rem;
+        text-align: left;
+    }
+
+    /* about */
+    #about .container {
+        margin: 0 auto;
+        grid-auto-flow: column;
+    }
+
+    /* services */
+    .cards {
+        grid-template-columns: 1fr 1fr; //fr de fraction, caso nos serviços eu queira colocar mais de 3 elementos, mudo aqui a proporcao
+    }
+
+    .card {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    /* testimonials */
+    #testimonials .container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* contact */
+    #contact .container {
+        grid-auto-flow: column;
+        align-items: center;
+    }
+
+    #contact .text {
+        max-width: 25rem;
+    }
+
+    /* footer */
+    footer.section {
+        padding: 3.75rem 0;
+    }
+
+    footer .container {
+        grid-auto-flow: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    footer .logo {
+        font-size: 2.25rem;
+    }
+}
+
+@media (min-width: 992px) {
+    $title-font-size: 2.25rem;
+    $subtitle-font-size: 1.125rem;
+}
