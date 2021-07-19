@@ -441,36 +441,29 @@ nav.show div.icon-close {
   background: #8b0953;
 }
 
-#contact
-.grid {
+#contact .grid {
   gap: 4rem;
 }
 
-#contact
-.grid strong {
+#contact .grid strong {
   color: #8b0953;
 }
 
-#contact
-.grid .text p {
+#contact .grid .text p {
   margin-bottom: 2rem;
 }
 
-#contact
-.grid .button i,
-#contact
-.grid ul li i {
+#contact .grid .button i,
+#contact .grid ul li i {
   font-size: 1.5rem;
   margin-right: 0.625rem;
 }
 
-#contact
-.grid ul.grid {
+#contact .grid ul.grid {
   gap: 2rem;
 }
 
-#contact
-.grid ul li {
+#contact .grid ul li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -479,8 +472,7 @@ nav.show div.icon-close {
           align-items: center;
 }
 
-#contact
-.grid ul li i {
+#contact .grid ul li i {
   color: #8b0953;
 }
 
@@ -501,6 +493,7 @@ footer .logo {
 footer .brand p {
   color: #f9f9f9;
   margin-bottom: 0.75rem;
+  font-size: .6rem;
 }
 
 footer i {

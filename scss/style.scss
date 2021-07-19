@@ -29,7 +29,7 @@ $fundo-imagem: hsla(334, 30%, 49%, 0.274);
 $cor-botao: hsl($hue, 23%, 33%);
 $title-color: hsl($hue, 41%, 10%);
 $body-color: hsl(0, 5%, 92%);
-$body-color-light:hsl(0, 0%, 96%);
+$body-color-light: hsl(0, 0%, 96%);
 $cor-secundaria: hsl($hue, 100%, 57%);
 $cor-terciaria: #4f5052;
 $text-color-light: #f9f9f9;
@@ -347,7 +347,7 @@ nav.show div.icon-close {
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
     border-bottom: 0.25rem solid $cor-primaria;
     border-radius: 0.25rem 0.25rem 0 0;
-    text-align: justify;    
+    text-align: justify;
 
     i {
         display: block;
@@ -369,8 +369,8 @@ nav.show div.icon-close {
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
     border-bottom: 0.25rem solid $cor-primaria;
     border-radius: 0.25rem 0.25rem 0 0;
-    text-align: center;   
-    
+    text-align: center;
+
     i {
         display: block;
         margin-bottom: 1.5rem;
@@ -452,15 +452,13 @@ nav.show div.icon-close {
 }
 
 //CONTACT=======================================
-#contact 
-    .grid {
+#contact .grid {
     gap: 4rem;
 
     strong {
         color: $cor-primaria;
     }
 
-    
     .text p {
         margin-bottom: 2rem;
     }
@@ -502,7 +500,9 @@ footer {
     .brand p {
         color: $text-color-light;
         margin-bottom: 0.75rem;
+        font-size: .6rem;
     }
+    
 
     i {
         font-size: 1.5rem;
