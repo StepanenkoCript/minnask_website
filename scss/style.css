@@ -111,7 +111,7 @@ body {
   left: 0;
   z-index: 100;
   background-color: whitesmoke;
-  width: 100%;
+  width: 100vw;
 }
 
 #header.scroll {
@@ -136,6 +136,10 @@ nav {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
+}
+
+nav.container {
+  width: 100vw;
 }
 
 nav ul li {
@@ -235,6 +239,8 @@ nav.show div.icon-close {
 
 #home .image {
   position: relative;
+  right: 1.5rem;
+  width: 120%;
 }
 
 #home .image::before {
@@ -250,7 +256,6 @@ nav.show div.icon-close {
 
 #home .image img {
   position: relative;
-  right: 1.5rem;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -430,6 +435,10 @@ nav.show div.icon-close {
 .swiper-slide {
   height: auto;
   padding: 4rem 1rem;
+}
+
+.swiper-container {
+  overflow: hidden;
 }
 
 .swiper-pagination-bullet {

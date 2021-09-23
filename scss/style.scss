@@ -52,6 +52,7 @@ body {
     color: $cor-terciaria;
     background: $body-color;
     -webkit-font-smoothing: antialiased;
+    
 }
 
 .title {
@@ -126,7 +127,7 @@ body {
     left: 0;
     z-index: 100;
     background-color: $body-color-light;
-    width: 100%;
+    width: 100vw;
 
     &.scroll {
         box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15); // aplica uma sombra no header sempre que der scroll
@@ -146,6 +147,10 @@ nav {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+
+    &.container {
+        width: 100vw;
+    }
 
     ul li {
         text-align: center;
@@ -251,6 +256,8 @@ nav.show div.icon-close {
 
     .image {
         position: relative;
+        right: 1.5rem;
+        width: 120%;
 
         &::before {
             content: "";
@@ -264,8 +271,7 @@ nav.show div.icon-close {
         }
 
         img {
-            position: relative;
-            right: 1.5rem;
+            position: relative;            
             transition: 0.3s;
 
             &:hover {
@@ -440,6 +446,10 @@ nav.show div.icon-close {
 .swiper-slide {
     height: auto;
     padding: 4rem 1rem;
+}
+
+.swiper-container {     // essa merd* me fez ficar 4 horas pra descobrir o porque a página tava quebrando.
+    overflow:hidden;
 }
 
 .swiper-pagination-bullet {
