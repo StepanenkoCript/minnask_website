@@ -52,7 +52,7 @@ const swiper = new Swiper('.swiper-container', {
 const scrollReveal = ScrollReveal({
   origin: 'top',
   distance: '40px', // distancia que o item percorre de cima pra baixo (efeito)
-  duration: 800, //duração em milisegundos (aconselhado no máximo 800 pro site não ficar com cara de "lento")
+  duration: 600, //duração em milisegundos (aconselhado no máximo 800 pro site não ficar com cara de "lento")
   reset: true, //quando der scroll até o fim, quando subir ele continua fazendo o efeito
 });
 
@@ -61,10 +61,10 @@ scrollReveal.reveal(
   #about .image, #about .text,
   #products header, #products .card,
   #testimonials header, #testimonials .testimonials,
-  #contact .text, #contact .links,
+  #contact .text,.swiper-slide, #contact .links,
   footer .brand, footer .social
   `,
-  { interval: 100 },
+  { interval: 130 },
 );
 
 /* Botão voltar para o topo */
