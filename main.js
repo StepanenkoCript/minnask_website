@@ -104,10 +104,10 @@ const scrollReveal = ScrollReveal({
 scrollReveal.reveal(
   `#home .image, #home .text,
   #about .image, #about .text,
-  #products header, #products .card,
+  #products header, #products .card, #products .card2,
   #testimonials header, #testimonials .testimonials,
-  #contact .text,.swiper-slide, #contact .links,
+  #contact .text, #contact .links,
   footer .brand, footer .social
   `,
-  { interval: 100 },
+  { interval: 120 },
 );

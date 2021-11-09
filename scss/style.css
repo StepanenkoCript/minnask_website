@@ -329,13 +329,16 @@ nav.show div.icon-close {
   gap: 1.5rem;
 }
 
+strong {
+  color: #8b0953;
+}
+
 .card {
   padding: 3.625rem 2rem;
   -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
           box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
   border-bottom: 0.25rem solid #8b0953;
   border-radius: 0.25rem 0.25rem 0 0;
-  text-align: justify;
 }
 
 .card i {

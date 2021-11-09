@@ -348,12 +348,16 @@ nav.show div.icon-close {
     gap: 1.5rem;
 }
 
+strong{
+    color: $cor-primaria;
+}
+
 .card {
     padding: 3.625rem 2rem;
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
     border-bottom: 0.25rem solid $cor-primaria;
     border-radius: 0.25rem 0.25rem 0 0;
-    text-align: justify;
+    
 
     i {
         display: block;
@@ -375,7 +379,7 @@ nav.show div.icon-close {
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
     border-bottom: 0.25rem solid $cor-primaria;
     border-radius: 0.25rem 0.25rem 0 0;
-    text-align: center;
+    text-align: center;    
 
     i {
         display: block;
@@ -450,6 +454,7 @@ nav.show div.icon-close {
 
 .swiper-container {     // essa merd* me fez ficar 4 horas pra descobrir o porque a página tava quebrando.
     overflow:hidden;
+    
 }
 
 .swiper-pagination-bullet {
