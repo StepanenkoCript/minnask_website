@@ -31,6 +31,8 @@ function changeHeaderWhenScroll() {
   }
 }
 
+/* ScrollReveal: Mostrar elementos quando der scroll na página */
+
 /* Testimonials carousel slider swiper */
 const swiper = new Swiper('.swiper-container', {
   slidesPerView: 1,
@@ -47,25 +49,6 @@ const swiper = new Swiper('.swiper-container', {
     },
   },
 });
-
-/* ScrollReveal: Mostrar elementos quando der scroll na página */
-const scrollReveal = ScrollReveal({
-  origin: 'top',
-  distance: '40px', // distancia que o item percorre de cima pra baixo (efeito)
-  duration: 600, //duração em milisegundos (aconselhado no máximo 800 pro site não ficar com cara de "lento")
-  reset: true, //quando der scroll até o fim, quando subir ele continua fazendo o efeito
-});
-
-scrollReveal.reveal(
-  `#home .image, #home .text,
-  #about .image, #about .text,
-  #products header, #products .card,
-  #testimonials header, #testimonials .testimonials,
-  #contact .text,.swiper-slide, #contact .links,
-  footer .brand, footer .social
-  `,
-  { interval: 130 },
-);
 
 /* Botão voltar para o topo */
 const backToTopButton = document.querySelector('.back-to-top');
@@ -104,8 +87,27 @@ function activateMenuAtCurrentSection() {
 }
 
 /* When Scroll */
+
 window.addEventListener('scroll', function () {
   changeHeaderWhenScroll();
   backToTop();
   activateMenuAtCurrentSection();
 });
+
+const scrollReveal = ScrollReveal({
+  origin: 'top',
+  distance: '40px', // distancia que o item percorre de cima pra baixo (efeito)
+  duration: 600, //duração em milisegundos (aconselhado no máximo 800 pro site não ficar com cara de "lento")
+  reset: true, //quando der scroll até o fim, quando subir ele continua fazendo o efeito
+});
+
+scrollReveal.reveal(
+  `#home .image, #home .text,
+  #about .image, #about .text,
+  #products header, #products .card,
+  #testimonials header, #testimonials .testimonials,
+  #contact .text,.swiper-slide, #contact .links,
+  footer .brand, footer .social
+  `,
+  { interval: 100 },
+);
